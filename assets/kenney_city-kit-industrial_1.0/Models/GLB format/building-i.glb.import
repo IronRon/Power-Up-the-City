@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/building-i.glb-b225031c06526b24d0a92ab58a5053
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="StaticBody3D"
 nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true
