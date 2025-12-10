@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://xf75ijbg1ylc"]
+
+[node name="FloatingInfoPanel" type="Node3D"]
+
+[node name="BillboardAnchor" type="Node3D" parent="."]
+
+[node name="SubViewport" type="SubViewport" parent="BillboardAnchor"]
+
+[node name="Control" type="Control" parent="BillboardAnchor/SubViewport"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="BillboardAnchor/SubViewport/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BillboardAnchor/SubViewport/Control/PanelContainer"]
+layout_mode = 2
+
+[node name="HeaderLabel" type="Label" parent="BillboardAnchor/SubViewport/Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BodyLabel" type="Label" parent="BillboardAnchor/SubViewport/Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BillboardAnchor"]
