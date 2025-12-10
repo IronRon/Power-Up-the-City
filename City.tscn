@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsejryjp1n266"]
+
+[ext_resource type="PackedScene" uid="uid://lxljoj7epg28" path="res://assets/kenney_city-kit-industrial_1.0/Models/GLB format/building-d.glb" id="1_1lbi8"]
+[ext_resource type="PackedScene" uid="uid://di5uq8k5lfcxs" path="res://assets/kenney_city-kit-industrial_1.0/Models/GLB format/building-a.glb" id="2_76ryl"]
+[ext_resource type="PackedScene" uid="uid://dn5ypf3phsg4c" path="res://assets/kenney_city-kit-industrial_1.0/Models/GLB format/building-c.glb" id="3_khkt5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_levc3"]
+size = Vector3(0.829834, 1.2757568, 1.2502747)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2spp0"]
+size = Vector3(2.0412598, 1.2741699, 1.2409668)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wymd4"]
+size = Vector3(1.6234741, 0.9608154, 1)
+
+[node name="City" type="Node3D"]
+
+[node name="building-d2" parent="." instance=ExtResource("1_1lbi8")]
+transform = Transform3D(-4.371139e-07, 0, -10, 0, 10, 0, 10, 0, -4.371139e-07, -21.083988, 0, 0.37483191)
+collision_layer = 15
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building-d2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006958008, 0.64058685, -0.0015411377)
+shape = SubResource("BoxShape3D_levc3")
+
+[node name="building-a2" parent="." instance=ExtResource("2_76ryl")]
+transform = Transform3D(-4.371139e-07, 0, 10, 0, 10, 0, -10, 0, -4.371139e-07, 27.484453, 0, -23.177132)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building-a2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008178711, 0.6441048, 0.0028076172)
+shape = SubResource("BoxShape3D_2spp0")
+
+[node name="building-c2" parent="." instance=ExtResource("3_khkt5")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -1.4905796, 0, 40.483135)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building-c2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17837526, 0.49376866, 0)
+shape = SubResource("BoxShape3D_wymd4")
