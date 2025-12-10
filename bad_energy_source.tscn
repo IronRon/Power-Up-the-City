@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://bp6ftgk3fhvn"]
+
+[ext_resource type="ArrayMesh" uid="uid://nnuqgddq2jhv" path="res://assets/kenney_city-kit-industrial_1.0/Models/OBJ format/building-l.obj" id="1_n4sil"]
+[ext_resource type="Texture2D" uid="uid://b0xw606hcmxn2" path="res://assets/kenney_city-kit-industrial_1.0/Models/Textures/variation-b.png" id="2_bvjtx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02xsr"]
+albedo_texture = ExtResource("2_bvjtx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rolnl"]
+albedo_texture = ExtResource("2_bvjtx")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tb822"]
+size = Vector3(2.0641785, 0.8949585, 1.8505859)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8lbno"]
+size = Vector3(2.4801636, 1.9677734, 3.2437134)
+
+[node name="BadEnergySource" type="Node3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Visual"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visual/StaticBody3D"]
+mesh = ExtResource("1_n4sil")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_02xsr")
+surface_material_override/1 = SubResource("StandardMaterial3D_rolnl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Visual/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40428162, 0.45083618, 0.23388672)
+shape = SubResource("BoxShape3D_tb822")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36715698, 0.9807016, -0.42092896)
+shape = SubResource("BoxShape3D_8lbno")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2846594, -1.2504094)
+
+[node name="SwapSocket" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.4290559)
+
+[node name="Marker3D" type="Marker3D" parent="SwapSocket"]
+
+[node name="InfoPanelAnchor" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.629391)
