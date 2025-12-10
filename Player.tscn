@@ -36,3 +36,4 @@ pose = &"aim"
 
 [node name="MovementSprint" parent="." instance=ExtResource("8_5ncpa")]
 sprint_speed_multiplier = 4.0
+controller = 1
