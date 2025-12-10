@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsg6lj11vgo65"]
+[gd_scene load_steps=9 format=3 uid="uid://bsg6lj11vgo65"]
 
 [ext_resource type="Environment" uid="uid://ckiwtcdsam7ed" path="res://addons/godot-xr-tools/staging/staging_env.tres" id="1_dtqjt"]
 [ext_resource type="PackedScene" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="2_5ncpa"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="5_3tkgg"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="6_l6ohk"]
 [ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="7_oudfo"]
+[ext_resource type="PackedScene" uid="uid://drs4eeq721ojn" path="res://addons/godot-xr-tools/functions/movement_sprint.tscn" id="8_5ncpa"]
 
 [node name="XROrigin3D" type="XROrigin3D"]
 
@@ -32,3 +33,6 @@ pose = &"aim"
 [node name="MovementTurn" parent="RightHandController" instance=ExtResource("6_l6ohk")]
 
 [node name="RightHand" parent="RightHandController" instance=ExtResource("7_oudfo")]
+
+[node name="MovementSprint" parent="." instance=ExtResource("8_5ncpa")]
+sprint_speed_multiplier = 4.0
