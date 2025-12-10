@@ -24,8 +24,6 @@ pose = &"aim"
 [node name="LeftHand" parent="LeftHandController" instance=ExtResource("4_hp6x6")]
 
 [node name="FunctionPickup" parent="LeftHandController" instance=ExtResource("4_5ncpa")]
-action_button_action = "primary_click"
-grab_distance = 1.0
 grab_collision_mask = 327684
 
 [node name="RightHandController" type="XRController3D" parent="."]

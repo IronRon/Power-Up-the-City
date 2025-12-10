@@ -2,7 +2,6 @@
 class_name XRToolsPickable
 extends RigidBody3D
 
-
 ## XR Tools Pickable Object
 ##
 ## This script allows a [RigidBody3D] to be picked up by an
@@ -154,7 +153,6 @@ func _ready():
 		var grab_point := child as XRToolsGrabPoint
 		if grab_point:
 			_grab_points.push_back(grab_point)
-
 
 # Test if this object can be picked up
 func can_pick_up(_by: Node3D) -> bool:
