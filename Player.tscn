@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bsg6lj11vgo65"]
+[gd_scene load_steps=9 format=3 uid="uid://bsg6lj11vgo65"]
 
 [ext_resource type="PackedScene" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="2_5ncpa"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="3_wi0c6"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="4_5ncpa"]
 [ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="4_hp6x6"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="5_3tkgg"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="6_l6ohk"]
@@ -22,6 +23,11 @@ pose = &"aim"
 
 [node name="LeftHand" parent="LeftHandController" instance=ExtResource("4_hp6x6")]
 
+[node name="FunctionPickup" parent="LeftHandController" instance=ExtResource("4_5ncpa")]
+action_button_action = "primary_click"
+grab_distance = 1.0
+grab_collision_mask = 327684
+
 [node name="RightHandController" type="XRController3D" parent="."]
 tracker = &"right_hand"
 pose = &"aim"
@@ -31,6 +37,8 @@ pose = &"aim"
 [node name="MovementTurn" parent="RightHandController" instance=ExtResource("6_l6ohk")]
 
 [node name="RightHand" parent="RightHandController" instance=ExtResource("7_oudfo")]
+
+[node name="FunctionPickup" parent="RightHandController" instance=ExtResource("4_5ncpa")]
 
 [node name="MovementSprint" parent="." instance=ExtResource("8_5ncpa")]
 sprint_speed_multiplier = 4.0

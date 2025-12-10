@@ -135,4 +135,3 @@ static func _get_grabber_controller(_grabber : Node) -> XRController3D:
 
 	# Get the controller associated with the pickup
 	return pickup.get_controller()
-

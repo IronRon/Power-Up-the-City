@@ -6,7 +6,7 @@ extends XRToolsGrabPoint
 ## XR Tools Grab Point Snap Script
 ##
 ## This script allows specifying a grab point for snap zones. It supports
-## group-filters if different points are required for different snap zones.
+## group-filters if different points are required for differet snap zones.
 
 
 ## Require grab-by to be in the specified group
