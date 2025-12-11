@@ -1,5 +1,7 @@
 extends Node3D
 
+
+
 @onready var header = $BillboardAnchor/SubViewport/Control/PanelContainer/VBoxContainer/HeaderLabel
 @onready var body   = $BillboardAnchor/SubViewport/Control/PanelContainer/VBoxContainer/BodyLabel
 @onready var panel  = $BillboardAnchor/SubViewport/Control/PanelContainer
