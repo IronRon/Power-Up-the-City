@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bp6ftgk3fhvn"]
+[gd_scene load_steps=14 format=3 uid="uid://bp6ftgk3fhvn"]
 
 [ext_resource type="ArrayMesh" uid="uid://nnuqgddq2jhv" path="res://assets/kenney_city-kit-industrial_1.0/Models/OBJ format/building-l.obj" id="1_n4sil"]
 [ext_resource type="Script" uid="uid://ceo6gu3thps7k" path="res://bad_energy_source.gd" id="1_rolnl"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d0hm85yc6gpwq" path="res://assets/oil-pump.png" id="4_qjwje"]
 [ext_resource type="PackedScene" uid="uid://gq17b48p3hvi" path="res://capsule_socket.tscn" id="6_tb822"]
 [ext_resource type="Texture2D" uid="uid://dk1th4xtbfy5w" path="res://assets/coal.png" id="7_8lbno"]
+[ext_resource type="PackedScene" uid="uid://dqk6xfuok24uc" path="res://assets/animated_wind_turbine_gltf/scene.gltf" id="7_vp4wc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_02xsr"]
 albedo_texture = ExtResource("2_bvjtx")
@@ -44,6 +45,10 @@ surface_material_override/1 = SubResource("StandardMaterial3D_rolnl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40428162, 0.45083618, 0.23388672)
 shape = SubResource("BoxShape3D_tb822")
 
+[node name="Wind" parent="Visual/StaticBody3D" instance=ExtResource("7_vp4wc")]
+transform = Transform3D(-0.0005, 0, -4.3711392e-11, 0, 0.0005, 0, 4.3711392e-11, 0, -0.0005, -0.40927577, 0, 0.10032427)
+visible = false
+
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 
@@ -64,3 +69,4 @@ icon_img = ExtResource("7_8lbno")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="capsule_inserted" from="CapsuleSocket" to="." method="_on_capsule_socket_capsule_inserted"]

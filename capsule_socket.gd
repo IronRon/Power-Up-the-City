@@ -1,5 +1,7 @@
 extends Node3D
 
+signal capsule_inserted(capsule)
+
 @export var initial_capsule_scene : PackedScene
 @export var icon_img: Texture2D
 
@@ -7,6 +9,8 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# If the snap zone picks something up → notify the outside world
+	SnapZone.has_picked_up.connect(_on_capsule_snapped)
 	# Spawn initial capsule (if provided)
 	if initial_capsule_scene:
 		var cap = initial_capsule_scene.instantiate()
@@ -17,7 +21,6 @@ func _ready():
 		# Give the SnapZone a NodePath, not the instance:
 		SnapZone.initial_object = cap.get_path()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_capsule_snapped(obj):
+	if obj is XRToolsPickable:
+		emit_signal("capsule_inserted", obj)

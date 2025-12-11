@@ -6,6 +6,7 @@ extends Node3D
 
 @export var panel_scene: PackedScene
 
+@onready var visuals = $Visual/StaticBody3D
 var panel_instance: Node3D
 
 # Called when the node enters the scene tree for the first time.
@@ -38,3 +39,23 @@ func _on_area_3d_body_entered(body):
 func _on_area_3d_body_exited(body):
 	if body.is_in_group("player_body"):
 		panel_instance.visible = false
+
+
+func _on_capsule_socket_capsule_inserted(capsule):
+	print("Capsule inserted: ", capsule.energy_type)
+	_update_visuals(capsule.energy_type)
+	
+func _update_visuals(energy_type: String):
+	# Show matching child by name
+	var node := visuals.get_node_or_null(energy_type.capitalize())
+	print("node:::", node)
+	if node:
+		node.visible = true
+		# Hide everything
+		$Visual/StaticBody3D/MeshInstance3D.visible = false
+	else:
+		print(energy_type.capitalize())
+
+
+
+	

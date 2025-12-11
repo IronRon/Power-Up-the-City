@@ -195,7 +195,6 @@ func can_pick_up(_by: Node3D) -> bool:
 
 # Test if this object is picked up
 func is_picked_up():
-	print("energy_type:", energy_type)
 	return _state == PickableState.HELD
 
 
