@@ -11,7 +11,7 @@ albedo_texture = ExtResource("2_skto8")
 script = ExtResource("1_skto8")
 
 [node name="CapsuleSnapZone" parent="." instance=ExtResource("1_km1hm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7870563, 0.05411744)
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0.7870563, 0.05411744)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

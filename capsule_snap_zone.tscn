@@ -8,6 +8,7 @@ resource_local_to_scene = true
 radius = 0.3
 
 [node name="CapsuleSnapZone" instance=ExtResource("1_7tcfy")]
+snap_mode = 1
 snap_require = "Capsule"
 
 [node name="CollisionShape3D" parent="." index="0"]
