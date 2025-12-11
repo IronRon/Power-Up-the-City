@@ -22,6 +22,7 @@ enum SnapMode {
 	RANGE,		## Snap whenever an object is in range
 }
 
+@onready var snap_burst = $SnapBurst
 
 ## Enable or disable snap-zone
 @export var enabled : bool = true: set = _set_enabled
@@ -250,6 +251,8 @@ func pick_up_object(target: Node3D) -> void:
 			player.stop()
 		player.stream = stash_sound
 		player.play()
+	
+	snap_burst.restart()
 
 	target.pick_up(self, null)
 

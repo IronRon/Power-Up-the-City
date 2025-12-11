@@ -32,3 +32,7 @@ func update_display():
 
 func set_co2_saved(value):
 	label.text = "CO₂ Saved: %d kg" % value
+
+
+func _on_quit_button_pressed():
+	pass

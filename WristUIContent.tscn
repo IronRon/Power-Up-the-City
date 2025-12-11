@@ -38,6 +38,7 @@ text = "CO₂ Saved: 0 kg"
 label_settings = SubResource("LabelSettings_ct8fw")
 
 [node name="QuitButton" type="Button" parent="Panel"]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -78,3 +79,5 @@ offset_bottom = -149.0
 grow_vertical = 0
 text = "Environment: Polluted"
 label_settings = SubResource("LabelSettings_rc1cc")
+
+[connection signal="pressed" from="Panel/QuitButton" to="." method="_on_quit_button_pressed"]

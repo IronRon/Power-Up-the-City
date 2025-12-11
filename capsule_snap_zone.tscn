@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://csw6rtdxngha3"]
+[gd_scene load_steps=8 format=3 uid="uid://csw6rtdxngha3"]
 
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="1_7tcfy"]
 [ext_resource type="AudioStream" uid="uid://bhaijr0vgcqp0" path="res://assets/chime.wav" id="2_4hxt3"]
@@ -7,6 +7,25 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_gtd11"]
 resource_local_to_scene = true
 radius = 0.3
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4hxt3"]
+lifetime_randomness = 1.0
+angle_min = -91.29999
+angle_max = 44.10001
+angular_velocity_min = 19.999983
+angular_velocity_max = 29.999983
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 0.2000001
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 9.999977
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vr0sb"]
+albedo_color = Color(5.198121e-06, 0.8429842, 0.27717146, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lxpd2"]
+material = SubResource("StandardMaterial3D_vr0sb")
+radius = 0.01
+height = 0.03
 
 [node name="CapsuleSnapZone" instance=ExtResource("1_7tcfy")]
 stash_sound = ExtResource("2_4hxt3")
@@ -22,3 +41,14 @@ volume_db = 50.0
 unit_size = 10.0
 
 [node name="HighlightRing" parent="." index="2" instance=ExtResource("2_gtd11")]
+
+[node name="SnapBurst" type="GPUParticles3D" parent="." index="3"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+emitting = false
+amount = 40
+lifetime = 0.5
+one_shot = true
+speed_scale = 0.8
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_4hxt3")
+draw_pass_1 = SubResource("CapsuleMesh_lxpd2")
