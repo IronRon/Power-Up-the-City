@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dhc2d5g1wqar4"]
+[gd_scene load_steps=33 format=3 uid="uid://dhc2d5g1wqar4"]
 
 [ext_resource type="Script" uid="uid://bghum7kvara52" path="res://world.gd" id="1_ioo17"]
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="1_tlwt5"]
@@ -13,9 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://bylw2vfm2q1rw" path="res://assets/gas.png" id="8_k3n1d"]
 [ext_resource type="PackedScene" uid="uid://bsejryjp1n266" path="res://City.tscn" id="9_ioo17"]
 [ext_resource type="PackedScene" uid="uid://5234lupaw6f8" path="res://good_capsule_spot.tscn" id="10_wse8f"]
+[ext_resource type="AudioStream" uid="uid://c8tgjbjoabdep" path="res://assets/132724__andy_gardner__wind-turbine-blades.wav" id="12_bo7i5"]
+[ext_resource type="AudioStream" uid="uid://c77dq6ao8h888" path="res://assets/349064__yoyodaman234__water-flowing-through-close-rapids-3.wav" id="14_4h6ng"]
 [ext_resource type="PackedScene" uid="uid://bshqry3csrbl4" path="res://assets/Nature/tree_default.glb" id="14_il2jm"]
 [ext_resource type="PackedScene" uid="uid://dtgsvp6eoemjy" path="res://assets/Nature/tree_default_dark.glb" id="15_wjb0r"]
 [ext_resource type="PackedScene" uid="uid://cpiutrsm1m1xq" path="res://assets/Nature/tree_detailed.glb" id="16_mc2jv"]
+[ext_resource type="AudioStream" uid="uid://cr3fdospon3wl" path="res://assets/668965__newlocknew__elecbuzz_electric-hum-and-buzz-with-sparksdesigned_em.wav" id="16_o3ebs"]
 [ext_resource type="PackedScene" uid="uid://ctc5dpgsftysw" path="res://assets/Nature/tree_detailed_dark.glb" id="17_bo7i5"]
 [ext_resource type="PackedScene" uid="uid://bscxng6a4qyrb" path="res://assets/Nature/tree_oak.glb" id="18_4h6ng"]
 [ext_resource type="PackedScene" uid="uid://c3nqm20uvv7fe" path="res://assets/Nature/tree_oak_dark.glb" id="19_o3ebs"]
@@ -122,6 +125,7 @@ panel_body = "Lower emissions than coal but still polluting. Releases methane, a
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.66267, 0, 62.554504)
 icon_img = ExtResource("6_pkg7o")
 panel_body = "Wind turbines convert moving air into clean electricity. • Zero emissions • Works day and night • One of the fastest-growing renewable sources"
+sound = ExtResource("12_bo7i5")
 
 [node name="GoodCapsuleSpot2" parent="." instance=ExtResource("10_wse8f")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 58.821335, 0, -20.109213)
@@ -129,6 +133,7 @@ energy_type = "Hydro"
 icon_img = ExtResource("8_ioo17")
 panel_title = "Hydropower"
 panel_body = "Hydropower plants generate energy from flowing water. • Reliable and consistent • Long-lasting infrastructure • Very low emissions"
+sound = ExtResource("14_4h6ng")
 
 [node name="GoodCapsuleSpot3" parent="." instance=ExtResource("10_wse8f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.39434, 0, -43.866486)
@@ -136,6 +141,7 @@ energy_type = "Solar"
 icon_img = ExtResource("7_gbfbk")
 panel_title = "Solar Energy"
 panel_body = "Solar panels turn sunlight into electricity. • Clean and renewable • Very low operating cost • Works even on cloudy days"
+sound = ExtResource("16_o3ebs")
 
 [node name="Nature" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.780405)

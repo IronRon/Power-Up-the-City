@@ -12,6 +12,9 @@ var energy_types = ["Wind", "Solar", "Hydro"]
 # Cached reference to environment
 @onready var env: Environment = $WorldEnvironment.environment
 @onready var nature = $Nature
+@onready var cap1 = $GoodCapsuleSpot
+@onready var cap2 = $GoodCapsuleSpot2
+@onready var cap3 = $GoodCapsuleSpot3
 
 signal world_state_changed(upgraded_sites, total_sites)
 
@@ -54,6 +57,9 @@ func _ready():
 		if env.sky.sky_material is PhysicalSkyMaterial:
 			sky_color = env.sky.sky_material.ground_color # good bright blue
 	_reset_nature()
+	cap1._update_sound()
+	cap2._update_sound()
+	cap3._update_sound()
 
 func _reset_nature():
 	for tree in nature.get_children():

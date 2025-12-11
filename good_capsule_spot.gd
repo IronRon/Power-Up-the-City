@@ -10,8 +10,11 @@ extends Node3D
 @export var panel_body: String = "Wind info"
 @export var panel_color: Color = Color(0.0, 0.708, 0.254, 1.0) # red
 
+@export var sound: AudioStream
+
 @onready var panel = $FloatingInfoPanel
 @onready var capsule = $Capsule
+@onready var audio = $AudioStreamPlayer3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,3 +35,10 @@ func _on_area_3d_body_entered(body):
 func _on_area_3d_body_exited(body):
 	if body.is_in_group("player_body"):
 		panel.hide_panel()
+
+func _update_sound():
+	if sound:
+		audio.stream = sound
+		audio.play()
+	else:
+		print("Failed to load sound:")
