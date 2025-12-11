@@ -119,19 +119,19 @@ panel_title = "Gas Power Station"
 panel_body = "Lower emissions than coal but still polluting. Releases methane, a potent greenhouse gas. Not sustainable long-term."
 
 [node name="GoodCapsuleSpot" parent="." instance=ExtResource("10_wse8f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.66267, 0, 57.39566)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.66267, 0, 62.554504)
 icon_img = ExtResource("6_pkg7o")
 panel_body = "Wind turbines convert moving air into clean electricity. • Zero emissions • Works day and night • One of the fastest-growing renewable sources"
 
 [node name="GoodCapsuleSpot2" parent="." instance=ExtResource("10_wse8f")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 86.99941, 0, -20.109213)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 58.821335, 0, -20.109213)
 energy_type = "Hydro"
 icon_img = ExtResource("8_ioo17")
 panel_title = "Hydropower"
 panel_body = "Hydropower plants generate energy from flowing water. • Reliable and consistent • Long-lasting infrastructure • Very low emissions"
 
 [node name="GoodCapsuleSpot3" parent="." instance=ExtResource("10_wse8f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.68098, 0, -43.866486)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.39434, 0, -43.866486)
 energy_type = "Solar"
 icon_img = ExtResource("7_gbfbk")
 panel_title = "Solar Energy"
