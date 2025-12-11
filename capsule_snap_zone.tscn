@@ -18,7 +18,7 @@ shape = SubResource("SphereShape3D_gtd11")
 
 [node name="AudioStreamPlayer3D" parent="." index="1"]
 stream = ExtResource("2_4hxt3")
-volume_db = 62.432
+volume_db = 50.0
 unit_size = 10.0
 
 [node name="HighlightRing" parent="." index="2" instance=ExtResource("2_gtd11")]
