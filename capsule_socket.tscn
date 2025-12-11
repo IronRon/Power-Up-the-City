@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://gq17b48p3hvi"]
+[gd_scene load_steps=8 format=3 uid="uid://gq17b48p3hvi"]
 
 [ext_resource type="PackedScene" uid="uid://csw6rtdxngha3" path="res://capsule_snap_zone.tscn" id="1_km1hm"]
 [ext_resource type="Script" uid="uid://b4h71kraiux7f" path="res://capsule_socket.gd" id="1_skto8"]
 [ext_resource type="Texture2D" uid="uid://d4gbpgjwjuovb" path="res://addons/godot-xr-tools/hands/textures/labglove_baseColor.png" id="2_skto8"]
+[ext_resource type="PackedScene" uid="uid://cnfbs2g8hnp52" path="res://energy_capsule.tscn" id="4_5141o"]
+[ext_resource type="Texture2D" uid="uid://d0hm85yc6gpwq" path="res://assets/oil-pump.png" id="5_xhbug"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5141o"]
 albedo_texture = ExtResource("2_skto8")
@@ -12,6 +14,10 @@ size = Vector3(0.506897, 0.6411133, 0.50006104)
 
 [node name="CapsuleSocket" type="StaticBody3D"]
 script = ExtResource("1_skto8")
+
+[node name="Capsule" parent="." instance=ExtResource("4_5141o")]
+energy_type = "Oil"
+icon_img = ExtResource("5_xhbug")
 
 [node name="CapsuleSnapZone" parent="." instance=ExtResource("1_km1hm")]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0.7870563, 0.05411744)

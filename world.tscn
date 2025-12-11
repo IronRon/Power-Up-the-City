@@ -1,13 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://dhc2d5g1wqar4"]
+[gd_scene load_steps=18 format=3 uid="uid://dhc2d5g1wqar4"]
 
 [ext_resource type="Script" uid="uid://bghum7kvara52" path="res://world.gd" id="1_ioo17"]
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="1_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://bsg6lj11vgo65" path="res://Player.tscn" id="2_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://bp6ftgk3fhvn" path="res://bad_energy_source.tscn" id="4_aqk2v"]
-[ext_resource type="PackedScene" uid="uid://cnfbs2g8hnp52" path="res://energy_capsule.tscn" id="6_dwbse"]
+[ext_resource type="Texture2D" uid="uid://dk1th4xtbfy5w" path="res://assets/coal.png" id="6_ic0uy"]
 [ext_resource type="Texture2D" uid="uid://cf25okw4mgt40" path="res://assets/wind-turbine.png" id="6_pkg7o"]
 [ext_resource type="Texture2D" uid="uid://dtk340degjvnw" path="res://assets/solar-panel.png" id="7_gbfbk"]
+[ext_resource type="Texture2D" uid="uid://d0hm85yc6gpwq" path="res://assets/oil-pump.png" id="7_k3n1d"]
 [ext_resource type="Texture2D" uid="uid://dowccaog8q6ux" path="res://assets/hydroelectric.png" id="8_ioo17"]
+[ext_resource type="Texture2D" uid="uid://bylw2vfm2q1rw" path="res://assets/gas.png" id="8_k3n1d"]
 [ext_resource type="PackedScene" uid="uid://bsejryjp1n266" path="res://City.tscn" id="9_ioo17"]
 [ext_resource type="PackedScene" uid="uid://5234lupaw6f8" path="res://good_capsule_spot.tscn" id="10_wse8f"]
 
@@ -43,8 +45,6 @@ size = Vector2(100, 100)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ic0uy"]
 size = Vector3(101.80249, 1, 100.04028)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_036b0"]
-
 [node name="World" type="Node3D"]
 script = ExtResource("1_ioo17")
 
@@ -67,7 +67,7 @@ environment = SubResource("Environment_036b0")
 [node name="StartXR" parent="." instance=ExtResource("1_tlwt5")]
 
 [node name="Player" parent="." instance=ExtResource("2_tlwt5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7265216, 0)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.7265216, 0)
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
@@ -85,37 +85,38 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18.621208)
 
 [node name="BadEnergySource" parent="." instance=ExtResource("4_aqk2v")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 41.83405, 0, 19.307863)
+icon_img = ExtResource("6_ic0uy")
+panel_body = "High CO₂ emissions. Major contributor to global pollution.\\nLow efficiency and harmful to human health."
 
 [node name="BadEnergySource2" parent="." instance=ExtResource("4_aqk2v")]
 transform = Transform3D(0.6107257, 0, 0.79184216, 0, 1, 0, -0.79184216, 0, 0.6107257, 46.788578, -0.0062742233, 47.742825)
+energy_type = "Oil"
+icon_img = ExtResource("7_k3n1d")
+panel_title = "Oil Generator"
+panel_body = "Produces toxic fumes. Significant greenhouse gas output. Oil extraction damages ecosystems."
 
 [node name="BadEnergySource3" parent="." instance=ExtResource("4_aqk2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.63173, -0.0062742233, 59.14881)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8361163, 0.4938233, 0)
-shape = SubResource("BoxShape3D_036b0")
-
-[node name="WindCapsule" parent="." instance=ExtResource("6_dwbse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7305584, 1.3916583, 0.3883407)
-is_clean = true
-energy_type = "Wind"
-icon_img = ExtResource("6_pkg7o")
-
-[node name="SolarCapsule" parent="." instance=ExtResource("6_dwbse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.372202, 1.3916583, -0.026588202)
-is_clean = true
-energy_type = "Solar"
-icon_img = ExtResource("7_gbfbk")
-
-[node name="HydroCapsule" parent="." instance=ExtResource("6_dwbse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7305584, 1.3916583, 0.096761465)
-is_clean = true
-energy_type = "Hydro"
-icon_img = ExtResource("8_ioo17")
+energy_type = "Gas"
+icon_img = ExtResource("8_k3n1d")
+panel_title = "Gas Power Station"
+panel_body = "Lower emissions than coal but still polluting. Releases methane, a potent greenhouse gas. Not sustainable long-term."
 
 [node name="GoodCapsuleSpot" parent="." instance=ExtResource("10_wse8f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.241641)
 icon_img = ExtResource("6_pkg7o")
+panel_body = "Wind turbines convert moving air into clean electricity. • Zero emissions • Works day and night • One of the fastest-growing renewable sources"
+
+[node name="GoodCapsuleSpot2" parent="." instance=ExtResource("10_wse8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8993182, 0, 9.241641)
+energy_type = "Hydro"
+icon_img = ExtResource("8_ioo17")
+panel_title = "Hydropower"
+panel_body = "Hydropower plants generate energy from flowing water. • Reliable and consistent • Long-lasting infrastructure • Very low emissions"
+
+[node name="GoodCapsuleSpot3" parent="." instance=ExtResource("10_wse8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.243089, 0, 9.241641)
+energy_type = "Solar"
+icon_img = ExtResource("7_gbfbk")
+panel_title = "Solar Energy"
+panel_body = "Solar panels turn sunlight into electricity. • Clean and renewable • Very low operating cost • Works even on cloudy days"

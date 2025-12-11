@@ -1,13 +1,11 @@
-[gd_scene load_steps=35 format=4 uid="uid://bp6ftgk3fhvn"]
+[gd_scene load_steps=33 format=4 uid="uid://bp6ftgk3fhvn"]
 
 [ext_resource type="ArrayMesh" uid="uid://nnuqgddq2jhv" path="res://assets/kenney_city-kit-industrial_1.0/Models/OBJ format/building-l.obj" id="1_n4sil"]
 [ext_resource type="Script" uid="uid://ceo6gu3thps7k" path="res://bad_energy_source.gd" id="1_rolnl"]
 [ext_resource type="Texture2D" uid="uid://b0xw606hcmxn2" path="res://assets/kenney_city-kit-industrial_1.0/Models/Textures/variation-b.png" id="2_bvjtx"]
 [ext_resource type="PackedScene" uid="uid://xf75ijbg1ylc" path="res://floating_info_panel.tscn" id="2_tb822"]
-[ext_resource type="PackedScene" uid="uid://cnfbs2g8hnp52" path="res://energy_capsule.tscn" id="3_bvjtx"]
 [ext_resource type="PackedScene" uid="uid://gq17b48p3hvi" path="res://capsule_socket.tscn" id="6_tb822"]
 [ext_resource type="Script" uid="uid://cfkpi7cubs3c8" path="res://wind.gd" id="7_3lc1g"]
-[ext_resource type="Texture2D" uid="uid://dk1th4xtbfy5w" path="res://assets/coal.png" id="7_8lbno"]
 [ext_resource type="Texture2D" uid="uid://lrx6hupjcdfq" path="res://assets/animated_wind_turbine_gltf/textures/WindTurbine_PBR_baseColor.png" id="7_ly0uj"]
 [ext_resource type="Texture2D" uid="uid://m1w1kxildh2w" path="res://assets/animated_wind_turbine_gltf/textures/WindTurbine_PBR_metallicRoughness.png" id="8_3lc1g"]
 [ext_resource type="Texture2D" uid="uid://d35se1rtujnwx" path="res://assets/animated_wind_turbine_gltf/textures/WindTurbine_PBR_normal.png" id="9_vnxqs"]
@@ -316,7 +314,7 @@ mesh = SubResource("ArrayMesh_qttfc")
 skeleton = NodePath("")
 
 [node name="Blades" type="Node3D" parent="Visual/StaticBody3D/Wind/Sketchfab_model/5de701acb89f4086aebb62a33940e658_fbx/Object_2/RootNode"]
-transform = Transform3D(41.334713, 9.356588e-06, 91.05736, -91.05736, -3.9802435e-06, 41.334713, 7.491823e-06, -100, 6.8746394e-06, -7.495341, 5307.8735, 480.89474)
+transform = Transform3D(-55.621956, -6.802452e-06, 83.103546, -83.103546, -3.632571e-06, -55.621956, 6.8024524e-06, -100, -3.6325712e-06, -7.495341, 5307.8735, 480.89474)
 
 [node name="Blades_WindTurbine_PBR_0" type="MeshInstance3D" parent="Visual/StaticBody3D/Wind/Sketchfab_model/5de701acb89f4086aebb62a33940e658_fbx/Object_2/RootNode/Blades"]
 mesh = SubResource("ArrayMesh_bec3i")
@@ -403,8 +401,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.429072)
 
 [node name="CapsuleSocket" parent="." instance=ExtResource("6_tb822")]
 transform = Transform3D(-0.8660254, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.8660254, -3.6650043, -0.028813794, -12.117531)
-initial_capsule_scene = ExtResource("3_bvjtx")
-icon_img = ExtResource("7_8lbno")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

@@ -3,22 +3,27 @@ extends Node3D
 # Text + color definitions for each clean energy type
 const ENERGY_INFO := {
 	"wind": {
-		"title": "Wind Power",
-		"body": "Zero emissions\nHighly sustainable\nPowered by natural wind",
-		"color": Color(0.3, 0.8, 1.0) # light blue
+		"title": "Wind Power (Upgraded)",
+		"body": "Pollution eliminated.\nEnergy now generated from wind.\nGreatly reduces CO₂ emissions and improves air quality.",
+		"color": Color(0.3, 0.8, 1.0)
 	},
 	"solar": {
-		"title": "Solar Energy",
-		"body": "Clean renewable energy\nWorks best in sunny conditions\nLow maintenance cost",
-		"color": Color(1.0, 0.9, 0.3) # warm yellow
+		"title": "Solar Power (Upgraded)",
+		"body": "The facility now runs on solar energy.\nZero operational emissions.\nA major step toward clean cities and sustainability.",
+		"color": Color(1.0, 0.9, 0.3)
 	},
 	"hydro": {
-		"title": "Hydropower",
-		"body": "Reliable renewable source\nStable energy production\nUses flowing water",
-		"color": Color(0.2, 0.6, 1.0) # deep blue
+		"title": "Hydropower (Upgraded)",
+		"body": "The plant now uses flowing water to generate energy.\nStable renewable output.\nSignificantly lowers environmental impact.",
+		"color": Color(0.2, 0.6, 1.0)
 	}
 }
 
+
+@export var is_clean: bool = false
+@export var energy_type: String = "Coal"
+@export var co2_value: int = 100
+@export var icon_img: Texture2D
 
 @export var panel_title: String = "Coal Power Plant"
 @export var panel_body: String = "High CO₂ emissions\nMajor source of air pollution"
@@ -27,6 +32,7 @@ const ENERGY_INFO := {
 @export var panel_scene: PackedScene
 
 @onready var visuals = $Visual/StaticBody3D
+@onready var capsule_socket = $CapsuleSocket
 var panel_instance: Node3D
 
 # Called when the node enters the scene tree for the first time.
@@ -44,6 +50,12 @@ func _ready():
 
 	# Hide by default
 	panel_instance.visible = false
+	
+	capsule_socket.capsule.is_clean = is_clean
+	capsule_socket.capsule.energy_type = energy_type
+	capsule_socket.capsule.co2_value = co2_value
+	capsule_socket.capsule.icon_img = icon_img
+	capsule_socket.capsule.update_visuals()
 
 
 

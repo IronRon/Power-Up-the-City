@@ -19,6 +19,7 @@ func _ready():
 	capsule.energy_type = energy_type
 	capsule.co2_value = co2_value
 	capsule.icon_img = icon_img
+	capsule.update_visuals()
 	
 	panel.set_content(panel_title, panel_body)
 	panel.set_color(panel_color)
