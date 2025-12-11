@@ -167,6 +167,10 @@ func update_visuals():
 	if mat == null:
 		print("magt null??")
 		return
+		
+	# make material unique so each capsule has its own!
+	mat = mat.duplicate()
+	visual.set_surface_override_material(0, mat)
 
 	if is_clean:
 		print("CLEAN")
