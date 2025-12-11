@@ -1,0 +1,8 @@
+Model Information:
+* title:	Hydro Power Dam
+* source:	https://sketchfab.com/3d-models/hydro-power-dam-e46fcc415d6f4ff4b1b9049311a53f56
+* author:	shaun.in.3d1 (https://sketchfab.com/shaun.in.3d1)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

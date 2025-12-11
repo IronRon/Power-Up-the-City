@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dowccaog8q6ux"
-path.s3tc="res://.godot/imported/hydroelectric.png-8d06676ad5cca8d617b3d2774304841d.s3tc.ctex"
-path.etc2="res://.godot/imported/hydroelectric.png-8d06676ad5cca8d617b3d2774304841d.etc2.ctex"
+uid="uid://cuo618wws7umv"
+path.s3tc="res://.godot/imported/aiStandardSurface1_baseColor.png-fe15ef33a9a7ad2ac84d0e9b3c037d11.s3tc.ctex"
+path.etc2="res://.godot/imported/aiStandardSurface1_baseColor.png-fe15ef33a9a7ad2ac84d0e9b3c037d11.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/hydroelectric.png"
-dest_files=["res://.godot/imported/hydroelectric.png-8d06676ad5cca8d617b3d2774304841d.s3tc.ctex", "res://.godot/imported/hydroelectric.png-8d06676ad5cca8d617b3d2774304841d.etc2.ctex"]
+source_file="res://assets/hydro_power_dam/textures/aiStandardSurface1_baseColor.png"
+dest_files=["res://.godot/imported/aiStandardSurface1_baseColor.png-fe15ef33a9a7ad2ac84d0e9b3c037d11.s3tc.ctex", "res://.godot/imported/aiStandardSurface1_baseColor.png-fe15ef33a9a7ad2ac84d0e9b3c037d11.etc2.ctex"]
 
 [params]
 

@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://3ka5rca6n3yp"]
+
+[ext_resource type="PackedScene" uid="uid://f0a2vfsf13c8" path="res://assets/solar_panel/scene.gltf" id="1_ytb75"]
+
+[node name="Solar" type="Node3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_ytb75")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+
+[node name="Sketchfab_Scene3" parent="." instance=ExtResource("1_ytb75")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -1.9752321, 0, 0)
+
+[node name="Sketchfab_Scene2" parent="." instance=ExtResource("1_ytb75")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 1.8463111, 0, 0)
+
+[node name="Sketchfab_Scene4" parent="." instance=ExtResource("1_ytb75")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, -0.9128705)
+
+[node name="Sketchfab_Scene5" parent="." instance=ExtResource("1_ytb75")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -1.9752321, 0, -0.9128705)
+
+[node name="Sketchfab_Scene6" parent="." instance=ExtResource("1_ytb75")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 1.8463111, 0, -0.9128705)
+
+[node name="Sketchfab_Scene7" parent="." instance=ExtResource("1_ytb75")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, -1.8837008)
+
+[node name="Sketchfab_Scene8" parent="." instance=ExtResource("1_ytb75")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, -1.9752321, 0, -1.8837008)
+
+[node name="Sketchfab_Scene9" parent="." instance=ExtResource("1_ytb75")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 1.8463111, 0, -1.8837008)
