@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dhc2d5g1wqar4"]
+[gd_scene load_steps=17 format=3 uid="uid://dhc2d5g1wqar4"]
 
 [ext_resource type="Script" uid="uid://bghum7kvara52" path="res://world.gd" id="1_ioo17"]
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="1_tlwt5"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dtk340degjvnw" path="res://assets/solar-panel.png" id="7_gbfbk"]
 [ext_resource type="Texture2D" uid="uid://dowccaog8q6ux" path="res://assets/hydroelectric.png" id="8_ioo17"]
 [ext_resource type="PackedScene" uid="uid://bsejryjp1n266" path="res://City.tscn" id="9_ioo17"]
+[ext_resource type="PackedScene" uid="uid://5234lupaw6f8" path="res://good_capsule_spot.tscn" id="10_wse8f"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_tlwt5"]
 turbidity = 4.0
@@ -114,3 +115,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7305584, 1.3916583, 0.09676
 is_clean = true
 energy_type = "Hydro"
 icon_img = ExtResource("8_ioo17")
+
+[node name="GoodCapsuleSpot" parent="." instance=ExtResource("10_wse8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.241641)
+icon_img = ExtResource("6_pkg7o")

@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://5234lupaw6f8"]
+
+[ext_resource type="Script" uid="uid://ddpebd0jmks1h" path="res://good_capsule_spot.gd" id="1_1sog2"]
+[ext_resource type="PackedScene" uid="uid://cnfbs2g8hnp52" path="res://energy_capsule.tscn" id="2_5om3h"]
+[ext_resource type="Texture2D" uid="uid://cf25okw4mgt40" path="res://assets/wind-turbine.png" id="3_i0qyu"]
+[ext_resource type="PackedScene" uid="uid://xf75ijbg1ylc" path="res://floating_info_panel.tscn" id="4_7xg6e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gcp34"]
+size = Vector3(0.3, 1.3, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x6o3b"]
+size = Vector3(8, 4, 8)
+
+[node name="GoodCapsuleSpot" type="Node3D"]
+script = ExtResource("1_1sog2")
+
+[node name="Capsule" parent="." instance=ExtResource("2_5om3h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4540837, 0)
+collision_layer = 32772
+collision_mask = 229383
+is_clean = true
+energy_type = "Wind"
+icon_img = ExtResource("3_i0qyu")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65, 0)
+collision_layer = 32768
+collision_mask = 32768
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_gcp34")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.317215, 0)
+
+[node name="FloatingInfoPanel" parent="." instance=ExtResource("4_7xg6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5589294, 0, 0)
+visible = false
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_x6o3b")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
