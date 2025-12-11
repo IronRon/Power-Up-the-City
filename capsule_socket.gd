@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var initial_capsule_scene : PackedScene
+@export var icon_img: Texture2D
 
 @onready var SnapZone = $CapsuleSnapZone
 
@@ -10,6 +11,7 @@ func _ready():
 	if initial_capsule_scene:
 		var cap = initial_capsule_scene.instantiate()
 		cap.name = "InitialCapsule"
+		cap.icon_img = icon_img
 		add_child(cap)
 
 		# Give the SnapZone a NodePath, not the instance:
