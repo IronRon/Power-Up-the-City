@@ -1,11 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://xf75ijbg1ylc"]
+[gd_scene load_steps=8 format=3 uid="uid://xf75ijbg1ylc"]
 
 [ext_resource type="Script" uid="uid://bht2qqjspwaw" path="res://addons/godot-xr-tools/objects/floating_info_panel.gd" id="1_5t8x0"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5t8x0"]
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_blend = true
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+expand_margin_left = 40.0
+expand_margin_top = 40.0
+expand_margin_right = 40.0
+expand_margin_bottom = 40.0
+shadow_size = 16
+
 [sub_resource type="LabelSettings" id="LabelSettings_dlm22"]
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_5t8x0"]
+paragraph_spacing = 2.0
+font_size = 64
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_g1oi0"]
 size = Vector2(0.5, 0.25)
+orientation = 2
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_a5aj8"]
 viewport_path = NodePath("BillboardAnchor/SubViewport")
@@ -13,9 +35,13 @@ viewport_path = NodePath("BillboardAnchor/SubViewport")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r2ggu"]
 resource_local_to_scene = true
 transparency = 1
+depth_draw_mode = 1
 no_depth_test = true
 shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
 albedo_texture = SubResource("ViewportTexture_a5aj8")
+billboard_mode = 2
 
 [node name="FloatingInfoPanel" type="Node3D"]
 script = ExtResource("1_5t8x0")
@@ -26,7 +52,7 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1
 [node name="SubViewport" type="SubViewport" parent="BillboardAnchor"]
 disable_3d = true
 transparent_bg = true
-size = Vector2i(512, 256)
+size = Vector2i(2048, 1024)
 render_target_update_mode = 4
 
 [node name="Control" type="Control" parent="BillboardAnchor/SubViewport"]
@@ -36,8 +62,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 6
+size_flags_vertical = 4
 
 [node name="PanelContainer" type="PanelContainer" parent="BillboardAnchor/SubViewport/Control"]
 layout_mode = 1
@@ -46,19 +72,29 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5t8x0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BillboardAnchor/SubViewport/Control/PanelContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="HeaderLabel" type="Label" parent="BillboardAnchor/SubViewport/Control/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 text = "hello"
 label_settings = SubResource("LabelSettings_dlm22")
+horizontal_alignment = 1
 
 [node name="BodyLabel" type="Label" parent="BillboardAnchor/SubViewport/Control/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 text = "body"
+label_settings = SubResource("LabelSettings_5t8x0")
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="BillboardAnchor"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("PlaneMesh_g1oi0")
 surface_material_override/0 = SubResource("StandardMaterial3D_r2ggu")
