@@ -45,16 +45,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36715698, 0.9807016, -0.42
 shape = SubResource("BoxShape3D_8lbno")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2846594, -18.591923)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0547428, 0.2846594, -10.730593)
 
 [node name="SwapSocket" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1711862, -17.857738)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6650043, 1.1711862, -12.117531)
 
 [node name="EnergyCapsule" parent="SwapSocket" instance=ExtResource("3_bvjtx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17851129, 0)
 
 [node name="InfoPanelAnchor" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19.417439)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.429072)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
