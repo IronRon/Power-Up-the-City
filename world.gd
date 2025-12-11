@@ -11,6 +11,7 @@ var energy_types = ["Wind", "Solar", "Hydro"]
 
 # Cached reference to environment
 @onready var env: Environment = $WorldEnvironment.environment
+@onready var nature = $Nature
 
 signal world_state_changed(upgraded_sites, total_sites)
 
@@ -22,6 +23,7 @@ func register_site_upgraded(energy_type):
 		print("Site upgraded:", upgraded_sites, "/", total_sites)
 
 		_apply_environment_changes()
+		_update_trees()
 
 		emit_signal("world_state_changed", upgraded_sites, total_sites)
 		$Player/LeftHandController/LeftHand/WristUI/SubViewport/Control.register_site_upgraded(100)
@@ -51,3 +53,28 @@ func _ready():
 	if env.sky is Sky:
 		if env.sky.sky_material is PhysicalSkyMaterial:
 			sky_color = env.sky.sky_material.ground_color # good bright blue
+	_reset_nature()
+
+func _reset_nature():
+	for tree in nature.get_children():
+		tree.scale = Vector3.ZERO
+		
+func _update_trees():
+	var target_scale: Vector3
+	
+	match upgraded_sites:
+		1:
+			target_scale = Vector3(2, 2, 2)
+		2:
+			target_scale = Vector3(4, 4, 4)
+		3:
+			target_scale = Vector3(6, 6, 6)
+		_:
+			target_scale = Vector3.ZERO
+
+	var delay := 0.0
+	for tree in nature.get_children():
+		var tween: Tween = create_tween()
+		tween.tween_interval(delay)
+		tween.tween_property(tree, "scale", target_scale, 1.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+		delay += 0.1
