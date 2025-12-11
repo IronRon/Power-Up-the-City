@@ -6,6 +6,7 @@ extends Node3D
 
 @onready var visual = $Capsule/Visual
 @onready var icon = $Capsule/Icon
+@onready var pickable := $Capsule
 
 func _ready():
 	update_visuals()
@@ -26,3 +27,21 @@ func update_visuals():
 	else:
 		print("not clean")
 		mat.albedo_color = Color(1.0, 0.3, 0.3)  # red
+		
+		
+
+func pick_up(by, controller):
+	pickable.pick_up(by, controller)
+
+func let_go(lv, av):
+	pickable.let_go(lv, av)
+
+func can_pick_up(by):
+	return pickable.can_pick_up(by)
+
+func request_highlight(from, enable):
+	pickable.request_highlight(from, enable)
+
+signal dropped
+func _on_drop():
+	emit_signal("dropped")

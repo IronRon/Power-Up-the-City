@@ -13,6 +13,12 @@ extends RigidBody3D
 ## Grab-points can be defined by adding different types of [XRToolsGrabPoint]
 ## child nodes controlling hand and snap-zone grab locations.
 
+@export var is_clean: bool = false
+@export var energy_type: String = "coal"
+@export var co2_value: int = 100
+
+@onready var visual = $Visual
+@onready var icon = $Icon
 
 # Signal emitted when the user picks up this object
 signal picked_up(pickable)
@@ -153,6 +159,24 @@ func _ready():
 		var grab_point := child as XRToolsGrabPoint
 		if grab_point:
 			_grab_points.push_back(grab_point)
+	update_visuals()
+
+func update_visuals():
+	var mat := visual.get_active_material(0) as StandardMaterial3D
+
+	if mat == null:
+		print("magt null??")
+		return
+
+	if is_clean:
+		print("CLEAN")
+		mat.albedo_color = Color(0.2, 1.0, 0.2)  # green
+		mat.emission_enabled = true
+		mat.emission = Color(0.3, 1.0, 0.3)
+		mat.emission_energy = 0.5
+	else:
+		print("not clean")
+		mat.albedo_color = Color(1.0, 0.3, 0.3)  # red
 
 # Test if this object can be picked up
 func can_pick_up(_by: Node3D) -> bool:

@@ -85,3 +85,4 @@ shape = SubResource("BoxShape3D_036b0")
 
 [node name="EnergyCapsule" parent="." instance=ExtResource("6_dwbse")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7305584, 1.3916583, 0.3883407)
+energy_type = "Water"
