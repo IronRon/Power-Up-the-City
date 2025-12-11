@@ -65,6 +65,13 @@ func _on_capsule_socket_capsule_inserted(capsule):
 	print("Capsule inserted: ", capsule.energy_type)
 	_update_visuals(capsule.energy_type)
 	_update_panel(capsule.energy_type)
+	var key: String = capsule.energy_type.to_lower()
+
+	if not ENERGY_INFO.has(key):
+		print("No World Update for energy type:", key)
+		return
+	# Inform the World that this site has been upgraded                
+	get_tree().root.get_node("World").register_site_upgraded()
 	
 func _update_visuals(energy_type: String):
 	# Show matching child by name

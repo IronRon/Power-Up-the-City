@@ -1,11 +1,10 @@
-[gd_scene load_steps=36 format=4 uid="uid://bp6ftgk3fhvn"]
+[gd_scene load_steps=35 format=4 uid="uid://bp6ftgk3fhvn"]
 
 [ext_resource type="ArrayMesh" uid="uid://nnuqgddq2jhv" path="res://assets/kenney_city-kit-industrial_1.0/Models/OBJ format/building-l.obj" id="1_n4sil"]
 [ext_resource type="Script" uid="uid://ceo6gu3thps7k" path="res://bad_energy_source.gd" id="1_rolnl"]
 [ext_resource type="Texture2D" uid="uid://b0xw606hcmxn2" path="res://assets/kenney_city-kit-industrial_1.0/Models/Textures/variation-b.png" id="2_bvjtx"]
 [ext_resource type="PackedScene" uid="uid://xf75ijbg1ylc" path="res://floating_info_panel.tscn" id="2_tb822"]
 [ext_resource type="PackedScene" uid="uid://cnfbs2g8hnp52" path="res://energy_capsule.tscn" id="3_bvjtx"]
-[ext_resource type="Texture2D" uid="uid://d0hm85yc6gpwq" path="res://assets/oil-pump.png" id="4_qjwje"]
 [ext_resource type="PackedScene" uid="uid://gq17b48p3hvi" path="res://capsule_socket.tscn" id="6_tb822"]
 [ext_resource type="Script" uid="uid://cfkpi7cubs3c8" path="res://wind.gd" id="7_3lc1g"]
 [ext_resource type="Texture2D" uid="uid://dk1th4xtbfy5w" path="res://assets/coal.png" id="7_8lbno"]
@@ -279,10 +278,6 @@ size = Vector3(2.4801636, 1.9677734, 3.2437134)
 script = ExtResource("1_rolnl")
 panel_scene = ExtResource("2_tb822")
 
-[node name="EnergyCapsule" parent="." instance=ExtResource("3_bvjtx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2735541, 0.1496975, -12.117531)
-icon_img = ExtResource("4_qjwje")
-
 [node name="Visual" type="Node3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 
@@ -321,7 +316,7 @@ mesh = SubResource("ArrayMesh_qttfc")
 skeleton = NodePath("")
 
 [node name="Blades" type="Node3D" parent="Visual/StaticBody3D/Wind/Sketchfab_model/5de701acb89f4086aebb62a33940e658_fbx/Object_2/RootNode"]
-transform = Transform3D(46.636974, 2.332572e-06, -88.459, 88.459, -3.8666653e-06, 46.636974, -2.3325722e-06, -100, -3.8666653e-06, -7.495341, 5307.8735, 480.89474)
+transform = Transform3D(41.334713, 9.356588e-06, 91.05736, -91.05736, -3.9802435e-06, 41.334713, 7.491823e-06, -100, 6.8746394e-06, -7.495341, 5307.8735, 480.89474)
 
 [node name="Blades_WindTurbine_PBR_0" type="MeshInstance3D" parent="Visual/StaticBody3D/Wind/Sketchfab_model/5de701acb89f4086aebb62a33940e658_fbx/Object_2/RootNode/Blades"]
 mesh = SubResource("ArrayMesh_bec3i")
