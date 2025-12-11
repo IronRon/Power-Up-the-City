@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://gq17b48p3hvi"]
+
+[ext_resource type="PackedScene" uid="uid://csw6rtdxngha3" path="res://capsule_snap_zone.tscn" id="1_km1hm"]
+[ext_resource type="Script" uid="uid://b4h71kraiux7f" path="res://capsule_socket.gd" id="1_skto8"]
+[ext_resource type="Texture2D" uid="uid://d4gbpgjwjuovb" path="res://addons/godot-xr-tools/hands/textures/labglove_baseColor.png" id="2_skto8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5141o"]
+albedo_texture = ExtResource("2_skto8")
+
+[node name="CapsuleSocket" type="Node3D"]
+script = ExtResource("1_skto8")
+
+[node name="CapsuleSnapZone" parent="." instance=ExtResource("1_km1hm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7870563, 0.05411744)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+size = Vector3(0.5, 1, 0.5)
+material = SubResource("StandardMaterial3D_5141o")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0.5, 0.25)
+operation = 2
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0.3, 0.05)
+operation = 2
+radius = 0.1
+height = 0.3
