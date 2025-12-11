@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dhc2d5g1wqar4"]
+[gd_scene load_steps=18 format=3 uid="uid://dhc2d5g1wqar4"]
 
 [ext_resource type="Script" uid="uid://bghum7kvara52" path="res://world.gd" id="1_ioo17"]
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="1_tlwt5"]
@@ -12,9 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://bylw2vfm2q1rw" path="res://assets/gas.png" id="8_k3n1d"]
 [ext_resource type="PackedScene" uid="uid://bsejryjp1n266" path="res://City.tscn" id="9_ioo17"]
 [ext_resource type="PackedScene" uid="uid://5234lupaw6f8" path="res://good_capsule_spot.tscn" id="10_wse8f"]
-[ext_resource type="AudioStream" uid="uid://c8tgjbjoabdep" path="res://assets/132724__andy_gardner__wind-turbine-blades.wav" id="11_hiqwa"]
-[ext_resource type="AudioStream" uid="uid://c77dq6ao8h888" path="res://assets/349064__yoyodaman234__water-flowing-through-close-rapids-3.wav" id="13_2u3nc"]
-[ext_resource type="AudioStream" uid="uid://cr3fdospon3wl" path="res://assets/668965__newlocknew__elecbuzz_electric-hum-and-buzz-with-sparksdesigned_em.wav" id="15_udxuc"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_tlwt5"]
 turbidity = 4.0
@@ -109,7 +106,6 @@ panel_body = "Lower emissions than coal but still polluting. Releases methane, a
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.241641)
 icon_img = ExtResource("6_pkg7o")
 panel_body = "Wind turbines convert moving air into clean electricity. • Zero emissions • Works day and night • One of the fastest-growing renewable sources"
-stash_sound = ExtResource("11_hiqwa")
 
 [node name="GoodCapsuleSpot2" parent="." instance=ExtResource("10_wse8f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8993182, 0, 9.241641)
@@ -117,7 +113,6 @@ energy_type = "Hydro"
 icon_img = ExtResource("8_ioo17")
 panel_title = "Hydropower"
 panel_body = "Hydropower plants generate energy from flowing water. • Reliable and consistent • Long-lasting infrastructure • Very low emissions"
-stash_sound = ExtResource("13_2u3nc")
 
 [node name="GoodCapsuleSpot3" parent="." instance=ExtResource("10_wse8f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.243089, 0, 9.241641)
@@ -125,4 +120,3 @@ energy_type = "Solar"
 icon_img = ExtResource("7_gbfbk")
 panel_title = "Solar Energy"
 panel_body = "Solar panels turn sunlight into electricity. • Clean and renewable • Very low operating cost • Works even on cloudy days"
-stash_sound = ExtResource("15_udxuc")

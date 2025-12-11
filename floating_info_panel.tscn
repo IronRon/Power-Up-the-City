@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://xf75ijbg1ylc"]
+[gd_scene load_steps=12 format=3 uid="uid://xf75ijbg1ylc"]
 
 [ext_resource type="Script" uid="uid://bht2qqjspwaw" path="res://floating_info_panel.gd" id="1_5t8x0"]
+[ext_resource type="AudioStream" uid="uid://ch0jpk7dl7wjy" path="res://assets/fade.wav" id="2_tmiyq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5t8x0"]
 border_width_left = 8
@@ -43,6 +44,43 @@ disable_fog = true
 albedo_texture = SubResource("ViewportTexture_a5aj8")
 billboard_mode = 2
 
+[sub_resource type="Animation" id="Animation_tmiyq"]
+resource_name = "pop_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BillboardAnchor/SubViewport/Control/PanelContainer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.05, 1.05), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ae1r8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BillboardAnchor/SubViewport/Control/PanelContainer:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q7irl"]
+_data = {
+&"RESET": SubResource("Animation_ae1r8"),
+&"pop_in": SubResource("Animation_tmiyq")
+}
+
 [node name="FloatingInfoPanel" type="Node3D"]
 script = ExtResource("1_5t8x0")
 
@@ -72,6 +110,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
 theme_override_styles/panel = SubResource("StyleBoxFlat_5t8x0")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BillboardAnchor/SubViewport/Control/PanelContainer"]
@@ -98,3 +137,12 @@ autowrap_mode = 3
 transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("PlaneMesh_g1oi0")
 surface_material_override/0 = SubResource("StandardMaterial3D_r2ggu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_q7irl")
+}
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_tmiyq")
+volume_db = -20.0

@@ -65,12 +65,12 @@ func _ready():
 
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("player_body"):
-		panel_instance.visible = true
+		panel_instance.show_panel()
 
 
 func _on_area_3d_body_exited(body):
 	if body.is_in_group("player_body"):
-		panel_instance.visible = false
+		panel_instance.hide_panel()
 
 
 func _on_capsule_socket_capsule_inserted(capsule):

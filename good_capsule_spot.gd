@@ -10,8 +10,6 @@ extends Node3D
 @export var panel_body: String = "Wind info"
 @export var panel_color: Color = Color(0.0, 0.708, 0.254, 1.0) # red
 
-@export var stash_sound: AudioStream
-
 @onready var panel = $FloatingInfoPanel
 @onready var capsule = $Capsule
 
@@ -25,19 +23,12 @@ func _ready():
 	
 	panel.set_content(panel_title, panel_body)
 	panel.set_color(panel_color)
-	
-	var player = get_node("AudioStreamPlayer3D")
-	if is_instance_valid(player):
-		if player.playing:
-			player.stop()
-		player.stream = stash_sound
-		player.play()
 
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("player_body"):
-		panel.visible = true
+		panel.show_panel()
 
 
 func _on_area_3d_body_exited(body):
 	if body.is_in_group("player_body"):
-		panel.visible = false
+		panel.hide_panel()

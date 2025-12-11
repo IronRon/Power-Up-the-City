@@ -6,14 +6,8 @@ extends Node3D
 @onready var body   = $BillboardAnchor/SubViewport/Control/PanelContainer/VBoxContainer/BodyLabel
 @onready var panel  = $BillboardAnchor/SubViewport/Control/PanelContainer
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+@onready var pop_sfx = $AudioStreamPlayer3D
+@onready var anim = $AnimationPlayer
 
 func set_content(title: String, text: String):
 	header.text = title
@@ -22,3 +16,13 @@ func set_content(title: String, text: String):
 func set_color(color: Color):
 	# Tint the panel background
 	panel.modulate = color
+
+func show_panel():
+	visible = true
+	pop_sfx.play()
+	anim.play("pop_in")
+
+
+func hide_panel():
+	visible = false
+	pop_sfx.play()
