@@ -5,17 +5,20 @@ const ENERGY_INFO := {
 	"wind": {
 		"title": "Wind Power (Upgraded)",
 		"body": "Pollution eliminated.\nEnergy now generated from wind.\nGreatly reduces CO₂ emissions and improves air quality.",
-		"color": Color(0.3, 0.8, 1.0)
+		"color": Color(0.3, 0.8, 1.0),
+		"sound": "res://assets/132724__andy_gardner__wind-turbine-blades.wav"
 	},
 	"solar": {
 		"title": "Solar Power (Upgraded)",
 		"body": "The facility now runs on solar energy.\nZero operational emissions.\nA major step toward clean cities and sustainability.",
-		"color": Color(1.0, 0.9, 0.3)
+		"color": Color(1.0, 0.9, 0.3),
+		"sound": "res://assets/668965__newlocknew__elecbuzz_electric-hum-and-buzz-with-sparksdesigned_em.wav"
 	},
 	"hydro": {
 		"title": "Hydropower (Upgraded)",
 		"body": "The plant now uses flowing water to generate energy.\nStable renewable output.\nSignificantly lowers environmental impact.",
-		"color": Color(0.2, 0.6, 1.0)
+		"color": Color(0.2, 0.6, 1.0),
+		"sound": "res://assets/349064__yoyodaman234__water-flowing-through-close-rapids-3.wav"
 	}
 }
 
@@ -33,6 +36,7 @@ const ENERGY_INFO := {
 
 @onready var visuals = $Visual/StaticBody3D
 @onready var capsule_socket = $CapsuleSocket
+@onready var audio = $AudioStreamPlayer3D
 var panel_instance: Node3D
 
 # Called when the node enters the scene tree for the first time.
@@ -71,13 +75,15 @@ func _on_area_3d_body_exited(body):
 
 func _on_capsule_socket_capsule_inserted(capsule):
 	print("Capsule inserted: ", capsule.energy_type)
-	_update_visuals(capsule.energy_type)
-	_update_panel(capsule.energy_type)
 	var key: String = capsule.energy_type.to_lower()
 
 	if not ENERGY_INFO.has(key):
 		print("No World Update for energy type:", key)
 		return
+	_update_visuals(capsule.energy_type)
+	_update_panel(capsule.energy_type)
+	_update_sound(capsule.energy_type)
+	
 	# Inform the World that this site has been upgraded                
 	get_tree().root.get_node("World").register_site_upgraded()
 	
@@ -104,6 +110,20 @@ func _update_panel(energy_type: String):
 	panel_instance.set_color(info["color"])
 	panel_instance.visible = true
 
+func _update_sound(energy_type: String):
+	var key := energy_type.to_lower()
 
+	if not ENERGY_INFO.has(key):
+		print("No sound for energy type:", key)
+		return
 
-	
+	var info = ENERGY_INFO[key]
+
+	var sound_path: String = info["sound"]
+	var stream: AudioStream = load(sound_path)
+
+	if stream:
+		audio.stream = stream
+		audio.play()
+	else:
+		print("Failed to load sound:", sound_path)

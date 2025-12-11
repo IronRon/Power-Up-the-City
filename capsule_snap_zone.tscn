@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://csw6rtdxngha3"]
+[gd_scene load_steps=5 format=3 uid="uid://csw6rtdxngha3"]
 
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="1_7tcfy"]
+[ext_resource type="AudioStream" uid="uid://bhaijr0vgcqp0" path="res://assets/chime.wav" id="2_4hxt3"]
 [ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="2_gtd11"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gtd11"]
@@ -13,5 +14,9 @@ snap_require = "Capsule"
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("SphereShape3D_gtd11")
+
+[node name="AudioStreamPlayer3D" parent="." index="1"]
+stream = ExtResource("2_4hxt3")
+volume_db = 15.135
 
 [node name="HighlightRing" parent="." index="2" instance=ExtResource("2_gtd11")]
