@@ -48,7 +48,6 @@ func _on_capsule_socket_capsule_inserted(capsule):
 func _update_visuals(energy_type: String):
 	# Show matching child by name
 	var node := visuals.get_node_or_null(energy_type.capitalize())
-	print("node:::", node)
 	if node:
 		node.visible = true
 		# Hide everything

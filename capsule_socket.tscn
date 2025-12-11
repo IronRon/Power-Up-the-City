@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://gq17b48p3hvi"]
+[gd_scene load_steps=6 format=3 uid="uid://gq17b48p3hvi"]
 
 [ext_resource type="PackedScene" uid="uid://csw6rtdxngha3" path="res://capsule_snap_zone.tscn" id="1_km1hm"]
 [ext_resource type="Script" uid="uid://b4h71kraiux7f" path="res://capsule_socket.gd" id="1_skto8"]
@@ -7,7 +7,10 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5141o"]
 albedo_texture = ExtResource("2_skto8")
 
-[node name="CapsuleSocket" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_skto8"]
+size = Vector3(0.506897, 0.6411133, 0.50006104)
+
+[node name="CapsuleSocket" type="StaticBody3D"]
 script = ExtResource("1_skto8")
 
 [node name="CapsuleSnapZone" parent="." instance=ExtResource("1_km1hm")]
@@ -28,3 +31,7 @@ transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70
 operation = 2
 radius = 0.1
 height = 0.3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0035095215, 0.32767886, 0.0069274902)
+shape = SubResource("BoxShape3D_skto8")
