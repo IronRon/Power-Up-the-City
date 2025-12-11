@@ -85,7 +85,7 @@ func _on_capsule_socket_capsule_inserted(capsule):
 	_update_sound(capsule.energy_type)
 	
 	# Inform the World that this site has been upgraded                
-	get_tree().root.get_node("World").register_site_upgraded()
+	get_tree().root.get_node("World").register_site_upgraded(capsule.energy_type)
 	
 func _update_visuals(energy_type: String):
 	# Show matching child by name

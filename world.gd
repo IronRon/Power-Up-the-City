@@ -7,19 +7,24 @@ var upgraded_sites := 0
 var fog_yellow := Color(0.651, 0.541, 0.094)
 var sky_color := Color(0.5, 0.7, 1.0) # fallback if sampling fails
 
+var energy_types = ["Wind", "Solar", "Hydro"]
 
 # Cached reference to environment
 @onready var env: Environment = $WorldEnvironment.environment
 
 signal world_state_changed(upgraded_sites, total_sites)
 
-func register_site_upgraded():
-	upgraded_sites += 1
-	print("Site upgraded:", upgraded_sites, "/", total_sites)
+func register_site_upgraded(energy_type):
+	
+	if energy_type in energy_types:
+		energy_types.erase(energy_type)
+		upgraded_sites += 1
+		print("Site upgraded:", upgraded_sites, "/", total_sites)
 
-	_apply_environment_changes()
+		_apply_environment_changes()
 
-	emit_signal("world_state_changed", upgraded_sites, total_sites)
+		emit_signal("world_state_changed", upgraded_sites, total_sites)
+		$Player/LeftHandController/LeftHand/WristUI/SubViewport/Control.register_site_upgraded(100)
 
 func _apply_environment_changes():
 	# Calculate progress 0 → 1
