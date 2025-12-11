@@ -9,6 +9,7 @@ resource_local_to_scene = true
 radius = 0.3
 
 [node name="CapsuleSnapZone" instance=ExtResource("1_7tcfy")]
+stash_sound = ExtResource("2_4hxt3")
 snap_mode = 1
 snap_require = "Capsule"
 
@@ -17,6 +18,7 @@ shape = SubResource("SphereShape3D_gtd11")
 
 [node name="AudioStreamPlayer3D" parent="." index="1"]
 stream = ExtResource("2_4hxt3")
-volume_db = 15.135
+volume_db = 62.432
+unit_size = 10.0
 
 [node name="HighlightRing" parent="." index="2" instance=ExtResource("2_gtd11")]
