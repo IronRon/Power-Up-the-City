@@ -30,8 +30,6 @@ shading_mode = 0
 albedo_color = Color(1, 1, 0.02745098, 1)
 
 [node name="Capsule" groups=["Capsule"] instance=ExtResource("3_8qqtw")]
-energy_type = null
-co2_value = null
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("CapsuleShape3D_rew4n")

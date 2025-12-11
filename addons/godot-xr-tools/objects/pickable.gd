@@ -16,6 +16,7 @@ extends RigidBody3D
 @export var is_clean: bool = false
 @export var energy_type: String = "coal"
 @export var co2_value: int = 100
+@export var icon_img: Texture2D
 
 @onready var visual = $Visual
 @onready var icon = $Icon
@@ -181,6 +182,11 @@ func update_visuals():
 	else:
 		print("not clean")
 		mat.albedo_color = Color(1.0, 0.3, 0.3)  # red
+		
+	# Apply PNG icon to the Icon node
+	if icon_img:
+		icon.texture = icon_img
+
 
 # Test if this object can be picked up
 func can_pick_up(_by: Node3D) -> bool:
@@ -189,6 +195,7 @@ func can_pick_up(_by: Node3D) -> bool:
 
 # Test if this object is picked up
 func is_picked_up():
+	print("energy_type:", energy_type)
 	return _state == PickableState.HELD
 
 

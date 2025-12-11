@@ -3,7 +3,7 @@
 [ext_resource type="ArrayMesh" uid="uid://nnuqgddq2jhv" path="res://assets/kenney_city-kit-industrial_1.0/Models/OBJ format/building-l.obj" id="1_n4sil"]
 [ext_resource type="Script" uid="uid://ceo6gu3thps7k" path="res://bad_energy_source.gd" id="1_rolnl"]
 [ext_resource type="Texture2D" uid="uid://b0xw606hcmxn2" path="res://assets/kenney_city-kit-industrial_1.0/Models/Textures/variation-b.png" id="2_bvjtx"]
-[ext_resource type="PackedScene" uid="uid://xf75ijbg1ylc" path="res://addons/godot-xr-tools/objects/floating_info_panel.tscn" id="2_tb822"]
+[ext_resource type="PackedScene" uid="uid://xf75ijbg1ylc" path="res://floating_info_panel.tscn" id="2_tb822"]
 [ext_resource type="PackedScene" uid="uid://cnfbs2g8hnp52" path="res://energy_capsule.tscn" id="3_bvjtx"]
 [ext_resource type="PackedScene" uid="uid://gq17b48p3hvi" path="res://capsule_socket.tscn" id="6_tb822"]
 
@@ -25,6 +25,8 @@ panel_scene = ExtResource("2_tb822")
 
 [node name="EnergyCapsule" parent="." instance=ExtResource("3_bvjtx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2735541, 0.1496975, -12.117531)
+energy_type = "coal"
+co2_value = 100
 
 [node name="Visual" type="Node3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://xf75ijbg1ylc"]
 
-[ext_resource type="Script" uid="uid://bht2qqjspwaw" path="res://addons/godot-xr-tools/objects/floating_info_panel.gd" id="1_5t8x0"]
+[ext_resource type="Script" uid="uid://bht2qqjspwaw" path="res://floating_info_panel.gd" id="1_5t8x0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5t8x0"]
 border_width_left = 8
