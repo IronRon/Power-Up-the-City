@@ -22,6 +22,13 @@ const ENERGY_INFO := {
 	}
 }
 
+const CLEAN_SCALES := {
+	"wind": Vector3(0.001, 0.001, 0.001),
+	"solar": Vector3.ONE,
+	"hydro": Vector3(50, 50, 50)
+}
+
+
 
 @export var is_clean: bool = false
 @export var energy_type: String = "Coal"
@@ -87,15 +94,49 @@ func _on_capsule_socket_capsule_inserted(capsule):
 	# Inform the World that this site has been upgraded                
 	get_tree().root.get_node("World").register_site_upgraded(capsule.energy_type)
 	
+#func _update_visuals(energy_type: String):
+	## Show matching child by name
+	#var node := visuals.get_node_or_null(energy_type.capitalize())
+	#if node:
+		#node.visible = true
+		## Hide everything
+		#$Visual/StaticBody3D/MeshInstance3D.visible = false
+	#else:
+		#print(energy_type.capitalize())
+		
 func _update_visuals(energy_type: String):
-	# Show matching child by name
-	var node := visuals.get_node_or_null(energy_type.capitalize())
-	if node:
-		node.visible = true
-		# Hide everything
-		$Visual/StaticBody3D/MeshInstance3D.visible = false
-	else:
-		print(energy_type.capitalize())
+	var clean_key := energy_type.to_lower()
+	# Get reference to factory mesh
+	var factory := $Visual/StaticBody3D/MeshInstance3D
+
+	# Get clean model node (Wind, Solar, Hydro child)
+	var clean_node := visuals.get_node_or_null(energy_type.capitalize())
+	if clean_node == null:
+		print("Could not find clean model for:", energy_type)
+		return
+
+	# Determine final target scale for this clean energy type
+	var target_scale: Vector3 = CLEAN_SCALES.get(clean_key, Vector3.ONE)
+
+	# Reset clean model scale to 0
+	clean_node.scale = Vector3.ZERO
+	clean_node.visible = true
+
+	# Animate: factory shrinks → clean model grows
+	var tween := create_tween()
+
+	tween.tween_property(factory, "scale", Vector3.ZERO, 0.7)\
+		.set_trans(Tween.TRANS_SINE)\
+		.set_ease(Tween.EASE_IN_OUT)
+
+	tween.tween_callback(func():
+		factory.visible = false
+	)
+
+	tween.tween_property(clean_node, "scale", target_scale, 0.9)\
+		.set_trans(Tween.TRANS_BACK)\
+		.set_ease(Tween.EASE_OUT)
+
 
 func _update_panel(energy_type: String):
 	var key := energy_type.to_lower()
