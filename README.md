@@ -108,16 +108,33 @@ When all sites are upgraded:
 
 ---
 
+## List of Scenes in the Project
+
+| Scene Name                    | Purpose                                                                                                   |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------- |
+| **Player Scene**              | XR player rig containing camera, controllers, movement, and interaction setup using the Godot XR Toolkit. |
+| **World Scene**               | Main game scene that manages the environment, fog, sky, trees, win condition, and overall game state.     |
+| **City Mesh Scene**           | Low-poly city environment containing buildings                |
+| **Bad Energy Source Scene**   | Represents a dirty energy facility (coal, oil, gas) that can be upgraded using clean energy capsules.     |
+| **Good Energy Spot Scene**    | Location where a clean energy model (wind, solar, hydro) appears after upgrading a bad energy source.     |
+| **Energy Capsule Scene**      | Pickable VR object representing a clean energy type, containing CO₂ data, icons, and visual effects.      |
+| **Capsule Socket Scene**      | Snap socket that accepts energy capsules and triggers the energy upgrade logic.                           |
+| **Capsule Snap Zone Scene**   | XR snap zone used to detect and securely place capsules into sockets.                                     |
+| **Floating Info Panel Scene** | Billboard UI panel that displays energy information about SDG to the player.                              |
+| **Wrist UI Content Scene**    | VR wrist-mounted UI displaying CO₂ saved, upgraded energy sites, and player progress.                     |
+| **Win UI Scene**              | Centered UI displayed when all energy sites are upgraded, including win message and sound.                |
+
+---
+
 ## References
 
-Include all references, e.g.:
-- **Godot XR Toolkit** — https://github.com/godotvr/godot-xr-tools
-- **Wind turbine sound** — Freesound.org
-- **Water flow sound** — Freesound.org
-- **Electric hum sound** — Freesound.org
-- **Low-poly city assets** — https://kenney.nl/
-- **Trees / nature assets** — https://kenney.nl/
-
+- **Godot XR Toolkit** - https://github.com/godotvr/godot-xr-tools
+- **Wind turbine sound** - Freesound.org
+- **Water flow sound** - Freesound.org
+- **Electric hum sound** - Freesound.org
+- **Low-poly city assets** - https://kenney.nl/
+- **Trees / nature assets** - https://kenney.nl/
+- **Clean Energy Models** - sketchfab
 ---
 
 ## What I Am Most Proud Of
