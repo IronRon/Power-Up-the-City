@@ -100,10 +100,10 @@ When all sites are upgraded:
 | `infopanel.gd` | Self-written/AI |
 | `world.gd` (World Manager) | Self-written/AI |
 | WristUI scenes & scripts | AI |
-| Wind Turbine GLTF | Free model (CC0) – specify source |
-| Solar Panel GLTF | Free model (CC0) – specify source |
-| Hydro Plant GLTF | Free model (CC0) – specify source |
-| City assets | Free asset kit (specify source) |
+| Wind Turbine GLTF | Free model – sketchfab |
+| Solar Panel GLTF | Free model – sketchfab |
+| Hydro Plant GLTF | Free model – sketchfab |
+| City assets | Free asset kit kenney.nl |
 | Sound effects | Freesound.org (links in references) |
 
 ---
