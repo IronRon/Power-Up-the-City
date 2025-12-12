@@ -3,7 +3,7 @@ extends Node
 # How many bad sites exist (3 in your case)
 @export var total_sites := 3
 # Current upgraded sites
-var upgraded_sites := 3
+var upgraded_sites := 0
 var fog_yellow := Color(0.651, 0.541, 0.094)
 var sky_color := Color(0.5, 0.7, 1.0) # fallback if sampling fails
 
