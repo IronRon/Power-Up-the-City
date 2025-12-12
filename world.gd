@@ -3,7 +3,7 @@ extends Node
 # How many bad sites exist (3 in your case)
 @export var total_sites := 3
 # Current upgraded sites
-var upgraded_sites := 0
+var upgraded_sites := 3
 var fog_yellow := Color(0.651, 0.541, 0.094)
 var sky_color := Color(0.5, 0.7, 1.0) # fallback if sampling fails
 
@@ -30,6 +30,9 @@ func register_site_upgraded(energy_type):
 
 		emit_signal("world_state_changed", upgraded_sites, total_sites)
 		$Player/LeftHandController/LeftHand/WristUI/SubViewport/Control.register_site_upgraded(100)
+		
+		if upgraded_sites >= total_sites:
+			show_win_screen()
 
 func _apply_environment_changes():
 	# Calculate progress 0 → 1
@@ -84,3 +87,7 @@ func _update_trees():
 		tween.tween_interval(delay)
 		tween.tween_property(tree, "scale", target_scale, 1.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 		delay += 0.1
+
+func show_win_screen():
+	var win_ui = $Player/XRCamera3D/WinEffect
+	win_ui.play_win()

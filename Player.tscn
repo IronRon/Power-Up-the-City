@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bsg6lj11vgo65"]
+[gd_scene load_steps=10 format=3 uid="uid://bsg6lj11vgo65"]
 
 [ext_resource type="PackedScene" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="2_5ncpa"]
+[ext_resource type="PackedScene" uid="uid://wq8p63iv8afy" path="res://win_effect.tscn" id="3_hp6x6"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="3_wi0c6"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="4_5ncpa"]
 [ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="4_hp6x6"]
@@ -16,6 +17,9 @@
 [node name="VRCommonShaderCache" parent="XRCamera3D" instance=ExtResource("2_5ncpa")]
 
 [node name="PlayerBody" parent="XRCamera3D" instance=ExtResource("3_wi0c6")]
+
+[node name="WinEffect" parent="XRCamera3D" instance=ExtResource("3_hp6x6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
 [node name="LeftHandController" type="XRController3D" parent="."]
 tracker = &"left_hand"
